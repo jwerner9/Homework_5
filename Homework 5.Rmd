@@ -20,7 +20,9 @@ data %>%
   ggplot()+
   geom_histogram(aes(x = scalelength, fill = length_cat))+
   facet_wrap(~length_cat)+
-  theme(legend.position = "none")
+  theme(legend.position = "none")+
+  labs(x = "Scale Length", y = "Counts")
+  
 
 ```
 
