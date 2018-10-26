@@ -1,0 +1,26 @@
+---
+title: "Homework 5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+.libPaths("C:/Users/jwerner9/Desktop/RPackages")
+library(tidyverse)
+library(ggplot2)
+library(tidyr)
+
+data <- read_csv("https://raw.githubusercontent.com/chrischizinski/gittutorial/master/data/Gaeta_etal_CLC_data.csv")
+
+data %>%
+  mutate(length_cat = ifelse(length>300, "Large", "Small")) %>%
+  ggplot()+
+  geom_histogram(aes(x = scalelength, fill = length_cat))+
+  facet_wrap(~length_cat)+
+  theme(legend.position = "none")
+
+```
+
